@@ -31,7 +31,6 @@ export class UserService {
   }
 
   private createOne(body: CreateUserInput) {
-    console.log(mockDatabase);
     return this.mockDatabase.set(body.email, body).get(body.email)!;
   }
 }
