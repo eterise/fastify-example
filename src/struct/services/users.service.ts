@@ -1,16 +1,25 @@
 import { mockDatabase } from "#helpers/constants/index.js";
-import type { CreateUserInput } from "#types/types.js";
+import type { CreateUserInput, LoginInput } from "#types/types.js";
 
 export class UserService {
   private mockDatabase = mockDatabase;
 
   public async signup(body: CreateUserInput) {
     const user = await this.findOne(body.email);
-
     if (user) throw new Error("A user with the same email already exists!");
-    const createdUser = this.createOne(body);
 
+    const createdUser = this.createOne(body);
     return createdUser;
+  }
+
+  public async signin(body: LoginInput) {
+    const user = await this.findOne(body.email);
+    if (!user) throw new Error("Email or password is incorrect!");
+
+    if (user.password !== body.password)
+      throw new Error("Email or password is incorrect!");
+
+    return body
   }
 
   private async findOne(
@@ -22,6 +31,7 @@ export class UserService {
   }
 
   private createOne(body: CreateUserInput) {
+    console.log(mockDatabase);
     return this.mockDatabase.set(body.email, body).get(body.email)!;
   }
 }
