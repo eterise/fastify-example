@@ -6,7 +6,15 @@
   "type": "module",
   "scripts": {
     "build": "rimraf ./dist && tsc",
-    "start": "npm run build && node ./dist/index.js "
+    "start": "npm run build && node ./dist/index.js",
+    "lint": "npx eslint ./src",
+    "format": "npx eslint ./src --fix"
+  },
+  "imports": {
+    "#src/*": "./dist/*",
+    "#struct/*": "./dist/struct/*",
+    "#types/*": "./dist/types/*",
+    "#helpers/*": "./dist/helpers/*"
   },
   "keywords": [],
   "author": "",
