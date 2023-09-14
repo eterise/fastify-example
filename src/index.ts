@@ -1,5 +1,5 @@
-import { testRouter, userRouter } from "./routes/index.js";
-import { FastifyService } from "./struct/services/fastify.service.js";
+import { testRouter, userRouter } from './routes/index.js';
+import { FastifyService } from './struct/services/fastify.service.js';
 
 const service = new FastifyService();
 

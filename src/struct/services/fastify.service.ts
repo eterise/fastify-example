@@ -1,5 +1,5 @@
-import Fastify from "fastify";
-import type { CreateFastifyOptions, FastifyPlugin } from "src/types/types.js";
+import Fastify from 'fastify';
+import type { CreateFastifyOptions, FastifyPlugin } from 'src/types/types.js';
 
 export class FastifyService {
   private fastify: ReturnType<typeof this.createNewFastify>;
