@@ -1,13 +1,19 @@
 import type { FastifyInstance } from "fastify";
 
+import { $ref } from "#src/schema/index.js";
+
 import * as controllers from "../controllers/index.js";
-import { createUserSchema } from "../schema/index.js";
 
 export const userRouter = async (fastify: FastifyInstance) => {
   fastify.route({
     method: "POST",
     url: "/users/signup",
-    schema: createUserSchema,
+    schema: {
+      body: $ref('createUserSchema'),
+      response: {
+        201: $ref('createUserResponseSchema')
+      }
+    },
     handler: controllers.user,
   });
 

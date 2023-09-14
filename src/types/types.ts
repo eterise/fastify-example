@@ -14,8 +14,3 @@ export type FastifyPlugin = Fastify.FastifyPluginCallback<
   Fastify.FastifyTypeProvider,
   Fastify.FastifyBaseLogger
 >;
-
-export interface CreateUserInput {
-  email: string;
-  password: string;
-}

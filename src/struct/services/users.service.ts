@@ -1,5 +1,5 @@
 import { mockDatabase } from "#helpers/constants/index.js";
-import type { CreateUserInput } from "#types/types.js";
+import type { CreateUserInput } from "#src/schema/index.js";
 
 export class UserService {
   private mockDatabase = mockDatabase;

@@ -1,8 +1,8 @@
 import type { FastifyReply, FastifyRequest } from "fastify";
 
+import type { CreateUserInput } from "#src/schema/index.js";
 import { appContainer } from "#struct/containers/app.container.js";
 import type { UserService } from "#struct/services/index.js";
-import type { CreateUserInput } from "#types/types.js";
 
 export const user = async (
   req: FastifyRequest<{ Body: CreateUserInput }>,
