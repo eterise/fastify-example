@@ -6,7 +6,7 @@ export class Container {
     this.instances[key] = instance;
   }
 
-  resolve<T>(key: string): T | undefined {
+  resolve<T>(key: string): T {
     return this.instances[key];
   }
 }

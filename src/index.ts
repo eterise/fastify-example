@@ -1,10 +1,17 @@
-import { testRouter, userRouter } from "./routes/index.js";
-import { FastifyService } from "./struct/services/fastify.service.js";
+import { controllersPlugin } from './plugins/controllers.js';
+import { testRouter, userRouter } from './routes/index.js';
+import { FastifyService } from './struct/services/fastify.service.js';
+
 
 const service = new FastifyService();
 
-service.init({ port: 3000 });
-service.registerMany([testRouter, userRouter]);
+const build = async () => {
+  service.register(controllersPlugin);
+  service.registerMany([testRouter, userRouter]);
+  await service.init({ port: 3000 });
+};
+
+build();
 
 //TODO: ADD PRISMA
 //TODO: ADD POSTS
