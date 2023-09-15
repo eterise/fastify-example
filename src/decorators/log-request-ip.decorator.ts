@@ -1,24 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import 'reflect-metadata';
 
-import type { FastifyRequest } from 'fastify';
-
-//TEMP: Is not safety enough
-const isFastifyRequest = (val: unknown): val is FastifyRequest => {
-  if (!isObject(val)) return false;
-
-  return (
-    'body' in val &&
-    'compileValidationSchema' in val &&
-    'headers' in val &&
-    'routeSchema' in val &&
-    'routeOptions' in val
-  );
-};
-
-const isObject = (val: unknown): val is object => {
-  return typeof val === 'object';
-};
+import { isFastifyRequest } from '#src/helpers/utils/util.js';
 
 export function LogRequest<T>() {
   return function (target: T, propertyKey: string, descriptor: PropertyDescriptor) {

@@ -1,1 +1,1 @@
-###Command to run your docker-container: docker run -p 3000:3000 --network="host" --name fastify-container fastify
+#Command to run your docker-container: docker run -p 3000:3000 --network="host" --name fastify-container fastify
